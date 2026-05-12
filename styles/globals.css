@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Fredoka+One&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --purple-light: #c8b6ff;
+  --purple-mid: #a78bfa;
+  --purple-dark: #7c3aed;
+  --navy: #1e1b4b;
+  --navy-soft: #312e81;
+  --yellow: #fde68a;
+  --yellow-light: #fef9c3;
+  --green-light: #bbf7d0;
+  --orange-light: #fed7aa;
+  --blue-light: #bfdbfe;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  color: #1e1b4b;
+  background: #fff;
+  overflow-x: hidden;
+}
+
+@layer utilities {
+  .font-fredoka {
+    font-family: 'Fredoka One', cursive;
+  }
+  .font-nunito {
+    font-family: 'Nunito', sans-serif;
+  }
+}
+
+/* Fade-in animation for scroll reveal */
+.fade-up {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Float animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+.animate-float-delay {
+  animation: float 4s ease-in-out infinite;
+  animation-delay: 0.6s;
+}
+
+/* Hover card lift */
+.card-hover {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+}
