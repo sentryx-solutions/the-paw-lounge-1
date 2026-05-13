@@ -115,3 +115,6 @@ pawvera/
 - Cart counter is local state — connect to a state manager (Zustand/Redux) for production
 - Email subscription form is UI-only — wire to a backend/Mailchimp for production
 - Testimonials carousel auto-advances; dots allow manual navigation
+
+
+just for testing....
