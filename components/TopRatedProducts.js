@@ -92,11 +92,11 @@ export default function TopRatedProducts() {
         </div>
 
         {/* CTA */}
-        <div className="text-center mt-10">
+        {/* <div className="text-center mt-10">
           <button className="bg-[#5B49F8] text-white px-8 py-3 rounded-full font-bold shadow-lg">
             Shop Best Sellers
           </button>
-        </div>
+        </div> */}
 
       </div>
     </section>
