@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { FaWhatsapp } from 'react-icons/fa';
+import { FaWhatsapp, FaPhoneAlt } from 'react-icons/fa';
 
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
@@ -42,6 +42,13 @@ export default function Home() {
       </main>
 
       <Footer />
+      {/* Call Floating Button */}
+<a
+  href="tel:+919346269204"
+  className="fixed bottom-24 right-6 z-50 bg-blue-500 hover:bg-blue-600 text-white p-4 rounded-full shadow-lg transition duration-300"
+>
+  <FaPhoneAlt size={24} />
+</a>
 
       {/* WhatsApp Floating Button */}
       <a
