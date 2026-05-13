@@ -5,46 +5,96 @@ export default function Subscription() {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add('visible')),
-      { threshold: 0.1 }
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      },
+      { threshold: 0.08 }
     );
-    sectionRef.current?.querySelectorAll('.fade-up').forEach((el) => observer.observe(el));
+
+    sectionRef.current
+      ?.querySelectorAll('.fade-up')
+      .forEach((el) => observer.observe(el));
+
     return () => observer.disconnect();
   }, []);
 
   return (
-    <section ref={sectionRef} className="bg-green-light py-20 px-6 md:px-16">
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
-        {/* Dog emoji */}
-        <div className="text-[8rem] animate-float select-none flex-shrink-0">🐶</div>
+    <section
+      ref={sectionRef}
+      className="relative bg-[#B8F3BB] py-24 px-6 md:px-16 overflow-hidden"
+    >
 
-        {/* Content */}
+      {/* Top cloud edge */}
+      <div className="absolute top-0 left-0 w-full h-6 bg-white rounded-b-[40px] z-20"></div>
+
+      {/* Bottom cloud edge */}
+      <div className="absolute bottom-0 left-0 w-full h-6 bg-white rounded-t-[40px] z-20"></div>
+
+      {/* Blue curve line */}
+      <svg
+        className="absolute inset-0 w-full h-full z-0"
+        viewBox="0 0 1200 500"
+        preserveAspectRatio="none"
+      >
+        <path
+          d="M0,300 
+             C200,100 400,20 520,140
+             C650,280 850,420 1200,350"
+          fill="none"
+          stroke="#7A72FF"
+          strokeWidth="12"
+        />
+      </svg>
+
+      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-16 relative z-10">
+
+        {/* Dog image */}
+        <div className="fade-up flex-shrink-0">
+          <img
+            src="/subscription/dog.png"
+            alt="Dog"
+            className="w-[420px] object-contain"
+          />
+        </div>
+
+        {/* Right content */}
         <div className="fade-up max-w-xl">
-          <h2 className="font-fredoka text-[2.4rem] text-navy leading-tight mb-4">
+
+          <h2 className="font-fredoka text-[2.5rem] leading-tight text-[#133B16] mb-5">
             Never Run Out of Pet Essentials
           </h2>
-          <p className="text-[0.97rem] text-gray-600 font-semibold leading-relaxed mb-6">
-            Enjoy automatic delivery on your pet's favorite food and supplies. Flexible, affordable and cancel anytime.
+
+          <p className="text-[#254028] text-[1rem] leading-relaxed mb-8">
+            Enjoy automatic delivery on your pet’s favorite food and
+            supplies—flexible, affordable, and cancel anytime.
           </p>
 
-          <ul className="space-y-3 mb-8">
+          {/* Features */}
+          <div className="space-y-4 mb-8">
             {[
               'Save on repeat orders',
               'Free delivery options',
               'Easy schedule changes',
             ].map((item) => (
-              <li key={item} className="flex items-center gap-3 font-bold text-navy text-[0.95rem]">
-                <span className="w-5 h-5 rounded-full bg-navy text-white flex items-center justify-center text-[0.65rem] font-black flex-shrink-0">
-                  ✓
-                </span>
+              <div
+                key={item}
+                className="flex items-center gap-3 font-bold text-[#133B16] text-[1rem]"
+              >
+                <span className="text-xl">✓</span>
                 {item}
-              </li>
+              </div>
             ))}
-          </ul>
+          </div>
 
-          <button className="inline-flex items-center gap-2 bg-navy text-white px-8 py-3.5 rounded-full font-extrabold text-[0.95rem] shadow-lg hover:-translate-y-1 hover:shadow-xl transition-all duration-200">
+          {/* Button */}
+          {/* <button className="bg-[#6557FF] text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:scale-105 transition">
             Start Subscription
-          </button>
+          </button> */}
+
         </div>
       </div>
     </section>
