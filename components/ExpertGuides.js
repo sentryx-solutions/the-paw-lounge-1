@@ -5,7 +5,7 @@ const guides = [
     image: '/guides/nutri-tips.png',
     title: 'Feeding & Nutrition Tips',
     desc: 'Learn how to choose the right food, understand ingredients, and build a balanced diet tailored to your pet’s age, breed, and lifestyle.',
-    bg: '#d7b8ff',
+    bg: '#E6C6FF',
   },
   {
     image: '/guides/common-health-issues.png',
@@ -17,7 +17,7 @@ const guides = [
     image: '/guides/behaviour.png',
     title: 'Behavior & Training Advice',
     desc: 'Practical training guides to improve behavior, reduce anxiety, and strengthen the bond between you and your pet.',
-    bg: '#BFEFFF',
+    bg: '#A8EEFD',
   },
 ];
 
@@ -67,7 +67,7 @@ export default function ExpertGuides() {
           {guides.map((guide, i) => (
             <div
               key={i}
-              className="fade-up rounded-[25px] p-6 min-h-[500px] flex flex-col"
+              className="fade-up rounded-[25px] p-6 min-h-[410px] flex flex-col"
               style={{
                 backgroundColor: guide.bg,
               }}
