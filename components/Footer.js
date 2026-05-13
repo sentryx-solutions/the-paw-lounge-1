@@ -111,7 +111,7 @@ export default function Footer() {
         </p>
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pt-4 border-t border-gray-100">
           <p className="text-[0.8rem] text-gray-400 font-semibold">
-            © 2025 Pawvera. All Rights Reserved.
+            © 2025 Sentryx-Pet. All Rights Reserved.
           </p>
           <div className="flex gap-5">
             {['Privacy Policy', 'Cookie Policy', 'Terms & Conditions'].map((item) => (
@@ -133,7 +133,7 @@ export default function Footer() {
           className="font-fredoka text-navy block leading-none"
           style={{ fontSize: 'clamp(3rem, 14vw, 9rem)', opacity: 0.06, letterSpacing: '-2px' }}
         >
-          Pawvera
+          Sentryx-Pet
         </span>
       </div>
     </>

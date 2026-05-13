@@ -10,7 +10,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 lg:px-16 py-4 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="font-fredoka text-2xl text-navy tracking-wide select-none">
-          Pawvera
+          Sentryx-Pet
         </Link>
 
         {/* Desktop Links */}

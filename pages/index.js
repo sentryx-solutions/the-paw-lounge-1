@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Pawvera – Pet Care Done Right</title>
+        <title>Sentryx-Pet – Pet Care Done Right</title>
         <meta
           name="description"
           content="Quality food, wellness products, expert guidance & essential care solutions all in one place for your dog, cat or small pet."
@@ -45,7 +45,7 @@ export default function Home() {
 
       {/* WhatsApp Floating Button */}
       <a
-  href="https://wa.me/919346269204?text=Hello%20Pawvera!"
+  href="https://wa.me/919346269204?text=Hello%20Sentryx-Pet!"
   target="_blank"
   rel="noopener noreferrer"
   className="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition duration-300"

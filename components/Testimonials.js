@@ -2,13 +2,13 @@ import { useEffect, useRef, useState } from 'react';
 
 const testimonials = [
   {
-    quote: "Everything my pet needs in one place. From nutrition to daily essentials, everything arrives perfectly packaged. I trust Pawvera for amazing deals and friendly subscriptions.",
+    quote: "Everything my pet needs in one place. From nutrition to daily essentials, everything arrives perfectly packaged. I trust Sentryx-Pet for amazing deals and friendly subscriptions.",
     author: "Jake M.",
     location: "New York",
     stars: 5,
   },
   {
-    quote: "Pawvera has completely changed how I care for my two dogs. The subscription saves me money every month and the quality of products is just outstanding. Highly recommend!",
+    quote: "Sentryx-Pet has completely changed how I care for my two dogs. The subscription saves me money every month and the quality of products is just outstanding. Highly recommend!",
     author: "Sarah L.",
     location: "Los Angeles",
     stars: 5,

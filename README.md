@@ -1,11 +1,11 @@
-# 🐾 Pawvera — Pet Care Done Right
+# 🐾 Sentryx-Pet — Pet Care Done Right
 
-A pixel-perfect replica of the Pawvera pet care e-commerce website, built with **Next.js**, **React**, and **Tailwind CSS**.
+A pixel-perfect replica of the Sentryx-Pet pet care e-commerce website, built with **Next.js**, **React**, and **Tailwind CSS**.
 
 ---
 
 ## 🖼️ Design Reference
-Faithfully replicates the Pawvera Dribbble design including:
+Faithfully replicates the Sentryx-Pet Dribbble design including:
 - Purple hero section with animated dog SVG illustration
 - Browse by Pet Type cards
 - Top Rated & Best Selling Products grid
@@ -48,7 +48,7 @@ npm start
 ## 📁 Project Structure
 
 ```
-pawvera/
+sentryx-pet/
 ├── components/
 │   ├── Navbar.js           # Sticky nav with mobile hamburger menu
 │   ├── Hero.js             # Purple hero + custom SVG dog illustration
