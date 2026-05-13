@@ -38,7 +38,7 @@ export default function Home() {
         <ExpertGuides />
         <Subscription />
         <CareServices />
-        <Testimonials />
+        {/* <Testimonials /> */}
       </main>
 
       <Footer />
