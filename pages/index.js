@@ -34,8 +34,9 @@ export default function Home() {
 
       <main>
         <Hero />
-        <Contact />
+        
         <BrowseByPet />
+        <Contact />
         <TopRatedProducts />
         <ExpertGuides />
         <Subscription />

@@ -42,7 +42,7 @@ export default function BrowseByPet() {
           }
         });
       },
-      { threshold: 0.15 }
+      { threshold: 0.12 }
     );
 
     const items = sectionRef.current?.querySelectorAll('.fade-up');
@@ -56,55 +56,132 @@ export default function BrowseByPet() {
     <>
       <section
         ref={sectionRef}
-        className="w-full bg-[#f7f5f3] py-24 px-6 overflow-hidden"
+        className="w-full bg-[#f7f5f3] py-16 sm:py-20 md:py-24 px-4 sm:px-6 overflow-hidden"
       >
         <div className="max-w-7xl mx-auto">
+
           {/* Header */}
-          <div className="text-center mb-20 fade-up">
-            <h2 className="text-[58px] md:text-[68px] font-black text-[#2f042f] leading-none tracking-[-2px]">
+          <div className="text-center mb-14 md:mb-20 fade-up">
+
+            <h2
+              className="
+                text-[2.5rem]
+                sm:text-[4rem]
+                md:text-[68px]
+                font-black
+                text-[#2f042f]
+                leading-[0.95]
+                tracking-[-2px]
+              "
+            >
               Browse by Pet Type
             </h2>
 
-            <p className="mt-5 text-[20px] leading-[32px] text-[#22153a] font-medium max-w-[650px] mx-auto">
+            <p
+              className="
+                mt-5
+                text-[15px]
+                sm:text-[18px]
+                md:text-[20px]
+                leading-[28px]
+                md:leading-[32px]
+                text-[#22153a]
+                font-medium
+                max-w-[650px]
+                mx-auto
+                px-2
+              "
+            >
               Helpful care essentials and best-selling products
-              <br />
+              <br className="hidden sm:block" />
               for every furry friend.
             </p>
           </div>
 
           {/* Cards */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-14">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
+
             {petTypes.map((pet, i) => {
               const Icon = pet.icon;
 
               return (
                 <div
                   key={pet.title}
-                  className="fade-up group relative flex items-center justify-center"
+                  className="
+                    fade-up
+                    group
+                    relative
+                    flex
+                    items-center
+                    justify-center
+                  "
                   style={{
                     transitionDelay: `${i * 120}ms`,
                   }}
                 >
-                  {/* Blob Shape */}
+                  {/* Blob Card */}
                   <div
-                    className="relative w-[320px] h-[320px] transition-all duration-500 group-hover:scale-[1.04] cursor-pointer border border-black/20"
+                    className="
+                      relative
+                      w-full
+                      max-w-[280px]
+                      h-[260px]
+                      sm:h-[280px]
+                      md:h-[320px]
+                      transition-all
+                      duration-500
+                      group-hover:scale-[1.04]
+                      cursor-pointer
+                      border
+                      border-black/10
+                      shadow-[0_10px_30px_rgba(0,0,0,0.06)]
+                    "
                     style={{
                       background: pet.bg,
                       borderRadius:
                         '55% 45% 60% 40% / 45% 60% 40% 55%',
                     }}
                   >
-                    {/* Content */}
-                    <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-8">
-                      <Icon
-                        size={58}
-                        strokeWidth={2.1}
-                        color={pet.iconColor}
-                        className="mb-7"
-                      />
+                    {/* Inner Content */}
+                    <div
+                      className="
+                        absolute
+                        inset-0
+                        flex
+                        flex-col
+                        items-center
+                        justify-center
+                        text-center
+                        px-6
+                      "
+                    >
+                      <div
+                        className="
+                          bg-white/50
+                          backdrop-blur-sm
+                          p-4
+                          rounded-full
+                          mb-5
+                          shadow-sm
+                        "
+                      >
+                        <Icon
+                          size={42}
+                          strokeWidth={2.2}
+                          color={pet.iconColor}
+                        />
+                      </div>
 
                       <h3
-                        className="text-[26px] md:text-[28px] leading-[38px] font-medium whitespace-pre-line"
+                        className="
+                          text-[20px]
+                          sm:text-[24px]
+                          md:text-[28px]
+                          leading-[30px]
+                          md:leading-[38px]
+                          font-bold
+                          whitespace-pre-line
+                        "
                         style={{
                           color: pet.iconColor,
                         }}
@@ -116,11 +193,12 @@ export default function BrowseByPet() {
                 </div>
               );
             })}
+
           </div>
         </div>
       </section>
 
-      {/* Animation Styles */}
+      {/* Animation */}
       <style jsx>{`
         .fade-up {
           opacity: 0;
