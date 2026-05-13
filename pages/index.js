@@ -6,7 +6,6 @@ import TopRatedProducts from '../components/TopRatedProducts';
 import ExpertGuides from '../components/ExpertGuides';
 import Subscription from '../components/Subscription';
 import CareServices from '../components/CareServices';
-import Testimonials from '../components/Testimonials';
 import Footer from '../components/Footer';
 
 export default function Home() {
@@ -32,7 +31,6 @@ export default function Home() {
         <ExpertGuides />
         <Subscription />
         <CareServices />
-        <Testimonials />
       </main>
       <Footer />
     </>
