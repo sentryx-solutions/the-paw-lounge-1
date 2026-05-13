@@ -2,25 +2,22 @@ import { useEffect, useRef } from 'react';
 
 const guides = [
   {
-    icon: '🥣',
+    image: '/guides/nutri-tips.png',
     title: 'Feeding & Nutrition Tips',
-    desc: 'Discover the right portion sizes, understand ingredients, and build a feeding schedule tailored to your pet\'s age, breed and lifestyle.',
-    emoji: '🐾',
-    bg: 'bg-[#c8b6ff]',
+    desc: 'Learn how to choose the right food, understand ingredients, and build a balanced diet tailored to your pet’s age, breed, and lifestyle.',
+    bg: '#d7b8ff',
   },
   {
-    icon: '💉',
+    image: '/guides/common-health-issues.png',
     title: 'Common Pet Health Issues',
-    desc: 'Learn about common symptoms, prevention tips, and when to seek professional veterinary care — written in simple, pet-parent-friendly language.',
-    emoji: '🐕‍🦺',
-    bg: 'bg-green-light',
+    desc: 'Understand early symptoms, prevention tips, and when to seek professional care explained in simple, pet-parent-friendly language.',
+    bg: '#FFD7B3',
   },
   {
-    icon: '🎓',
+    image: '/guides/behaviour.png',
     title: 'Behavior & Training Advice',
-    desc: 'Practical training guides to improve obedience, reduce anxiety, and strengthen the bond between you and your pet with positive techniques.',
-    emoji: '🦮',
-    bg: 'bg-yellow',
+    desc: 'Practical training guides to improve behavior, reduce anxiety, and strengthen the bond between you and your pet.',
+    bg: '#BFEFFF',
   },
 ];
 
@@ -29,52 +26,76 @@ export default function ExpertGuides() {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add('visible')),
-      { threshold: 0.1 }
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      },
+      { threshold: 0.08 }
     );
-    sectionRef.current?.querySelectorAll('.fade-up').forEach((el) => observer.observe(el));
+
+    sectionRef.current
+      ?.querySelectorAll('.fade-up')
+      .forEach((el) => observer.observe(el));
+
     return () => observer.disconnect();
   }, []);
 
   return (
-    <section ref={sectionRef} className="bg-white py-20 px-6 md:px-16">
+    <section
+      ref={sectionRef}
+      className="bg-white py-20 px-6 md:px-16"
+    >
       <div className="max-w-6xl mx-auto">
-        {/* Header */}
+
+        {/* Heading */}
         <div className="text-center mb-12 fade-up">
-          <h2 className="font-fredoka text-[2rem] text-navy">Expert Pet Care Guides</h2>
-          <p className="mt-2 text-[0.93rem] text-gray-500 font-semibold max-w-md mx-auto">
-            Need trusted advice? Our vet-written nutrition guides and behavior articles help you care smarter.
+          <h2 className="font-fredoka text-[2rem] text-[#4a2f17]">
+            Expert Pet Care Guides
+          </h2>
+
+          <p className="mt-2 text-sm text-[#5c4635] max-w-md mx-auto">
+            Need trusted advice? Our vet-reviewed tips, nutrition guides
+            and behavior articles help you care smarter.
           </p>
         </div>
 
-        {/* Guide Cards */}
+        {/* Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {guides.map((guide, i) => (
             <div
-              key={guide.title}
-              className={`fade-up card-hover ${guide.bg} rounded-3xl p-8 cursor-pointer flex flex-col`}
-              style={{ transitionDelay: `${i * 100}ms` }}
+              key={i}
+              className="fade-up rounded-[25px] p-6 min-h-[500px] flex flex-col"
+              style={{
+                backgroundColor: guide.bg,
+              }}
             >
-              <div className="text-4xl mb-4">{guide.icon}</div>
-              <h3 className="font-fredoka text-[1.2rem] text-navy mb-3">{guide.title}</h3>
-              <p className="text-[0.88rem] text-gray-600 font-semibold leading-relaxed flex-1">{guide.desc}</p>
 
-              {/* Image placeholder */}
-              <div className="w-full h-28 mt-5 rounded-xl bg-white/50 flex items-center justify-center text-4xl">
-                {guide.emoji}
+              {/* Title */}
+              <h3 className="font-fredoka text-[1.5rem] text-[#3c2a1c] leading-tight">
+                {guide.title}
+              </h3>
+
+              {/* Description */}
+              <p className="mt-4 text-sm text-[#4e4035] leading-relaxed flex-1">
+                {guide.desc}
+              </p>
+
+              {/* Image */}
+              <div className="mt-8 flex justify-center">
+                <img
+                  src={guide.image}
+                  alt={guide.title}
+                  className="h-[160px] object-contain"
+                />
               </div>
 
-              {/* Paw & Plate brand watermark */}
-              <div className="mt-3 text-[0.72rem] font-extrabold text-navy/40 uppercase tracking-widest">
-                Paw &amp; Plate
-              </div>
-
-              <button className="mt-5 self-start bg-navy text-white px-5 py-2 rounded-full font-extrabold text-[0.82rem] hover:-translate-y-1 hover:bg-purple-dark transition-all duration-200">
-                Read More
-              </button>
             </div>
           ))}
         </div>
+
       </div>
     </section>
   );
