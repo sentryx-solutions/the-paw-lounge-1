@@ -3,6 +3,7 @@ import { FaWhatsapp, FaPhoneAlt } from 'react-icons/fa';
 
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
+import Contact from '../components/Contact';
 import BrowseByPet from '../components/BrowseByPet';
 import TopRatedProducts from '../components/TopRatedProducts';
 import ExpertGuides from '../components/ExpertGuides';
@@ -33,6 +34,7 @@ export default function Home() {
 
       <main>
         <Hero />
+        <Contact />
         <BrowseByPet />
         <TopRatedProducts />
         <ExpertGuides />
