@@ -5,35 +5,79 @@ export default function Hero() {
 
   useEffect(() => {
     const el = ref.current;
-    if (el) setTimeout(() => el.classList.add('visible'), 100);
+    if (el) {
+      setTimeout(() => {
+        el.classList.add('visible');
+      }, 100);
+    }
   }, []);
 
   return (
-    <section className="bg-[#c8b6ff] relative overflow-hidden min-h-[440px] flex items-end justify-between px-6 md:px-16 pt-16 md:pt-20">
-      {/* Radial glow */}
-      <div className="absolute inset-0 pointer-events-none"
-        style={{ background: 'radial-gradient(circle at 80% 50%, rgba(255,255,255,.28) 0%, transparent 60%)' }} />
-
-      {/* Text */}
-      <div ref={ref} className="fade-up relative z-10 max-w-lg pb-14 md:pb-20">
-        <h1 className="font-fredoka text-[clamp(2.8rem,6vw,4.8rem)] leading-[1.04] text-navy uppercase tracking-tight">
-          Pet Care<br />
-          <span className="text-[#312e81]">Done Right</span>
-        </h1>
-        <p className="mt-4 mb-7 text-[0.97rem] text-[#312e81] font-semibold leading-relaxed max-w-sm">
-          Quality food, wellness products, expert guidance &amp; essential care solutions all in one place for your dog, cat or small pet.
-        </p>
-        <a
-          href="#"
-          className="inline-flex items-center gap-2 bg-navy text-white px-7 py-3.5 rounded-full font-extrabold text-[0.95rem] shadow-lg hover:-translate-y-1 hover:shadow-xl transition-all duration-200"
+    <section className="relative overflow-hidden bg-[#d9c2ef] min-h-screen flex items-center px-6 md:px-20 py-10">
+      
+      {/* Background Curves */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <svg
+          className="absolute inset-0 w-full h-full"
+          viewBox="0 0 1600 900"
+          preserveAspectRatio="none"
         >
-          Shop Now &amp; Save ›
-        </a>
+          <path
+            d="M-100 520C220 760 520 120 900 420C1220 670 1480 700 1750 500"
+            stroke="#7b7cff"
+            strokeWidth="28"
+            fill="none"
+            opacity="0.9"
+            strokeLinecap="round"
+          />
+
+          <path
+            d="M1400 700C1180 540 980 820 700 700C420 580 260 760 -80 680"
+            stroke="#7b7cff"
+            strokeWidth="24"
+            fill="none"
+            opacity="0.9"
+            strokeLinecap="round"
+          />
+        </svg>
       </div>
 
-      {/* Dog illustration */}
-      <div className="relative z-10 animate-float w-[clamp(220px,36vw,460px)] self-end">
-        <DogIllustration />
+      {/* Main Content */}
+      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 items-center w-full gap-10">
+        
+        {/* Left Content */}
+        <div
+          ref={ref}
+          className="fade-up flex flex-col justify-center"
+        >
+          <h1 className="uppercase font-black text-[#2c1145] leading-[0.9] tracking-[-3px]
+            text-[4.5rem] sm:text-[6rem] md:text-[7rem] lg:text-[8rem]"
+          >
+            Pet Care
+            <br />
+            Done Right
+          </h1>
+
+          <p className="mt-10 text-[#2c1145] text-lg leading-relaxed max-w-md font-medium">
+            Quality food, wellness products, expert guidance &
+            essential care solutions all in one place for your
+            dog, cat or small pet.
+          </p>
+
+          <button className="mt-8 w-fit px-8 py-4 rounded-full border-2 border-[#6b63ff]
+            text-[#ffffff] bg-[#5f5cf4] font-semibold text-lg
+            shadow-lg hover:scale-105 transition-all duration-300"
+          >
+            Shop Best Sellers
+          </button>
+        </div>
+
+        {/* Right Dog Illustration */}
+        <div className="relative flex justify-center lg:justify-end">
+          <div className="w-[320px] sm:w-[420px] md:w-[520px] animate-float">
+            <DogIllustration />
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -41,53 +85,109 @@ export default function Hero() {
 
 function DogIllustration() {
   return (
-    <svg viewBox="0 0 420 390" xmlns="http://www.w3.org/2000/svg" className="w-full drop-shadow-2xl">
-      {/* Tail */}
-      <path d="M318 258 Q372 214 356 174 Q344 150 318 172"
-        stroke="#e8b84b" strokeWidth="26" fill="none" strokeLinecap="round" />
-      {/* Body */}
-      <ellipse cx="210" cy="272" rx="122" ry="92" fill="#f5d987" />
-      {/* Hind legs */}
-      <ellipse cx="156" cy="348" rx="36" ry="23" fill="#f5d987" />
-      <ellipse cx="266" cy="348" rx="36" ry="23" fill="#f5d987" />
-      {/* Toe pads */}
-      <ellipse cx="144" cy="354" rx="11" ry="7" fill="#e8b84b" />
-      <ellipse cx="165" cy="358" rx="11" ry="7" fill="#e8b84b" />
-      <ellipse cx="255" cy="358" rx="11" ry="7" fill="#e8b84b" />
-      <ellipse cx="276" cy="354" rx="11" ry="7" fill="#e8b84b" />
-      {/* Head */}
-      <ellipse cx="210" cy="150" rx="92" ry="84" fill="#f5d987" />
-      {/* Ears */}
-      <ellipse cx="136" cy="112" rx="33" ry="48" fill="#e8b84b" transform="rotate(-18 136 112)" />
-      <ellipse cx="284" cy="112" rx="33" ry="48" fill="#e8b84b" transform="rotate(18 284 112)" />
-      <ellipse cx="136" cy="116" rx="19" ry="31" fill="#fde68a" transform="rotate(-18 136 116)" />
-      <ellipse cx="284" cy="116" rx="19" ry="31" fill="#fde68a" transform="rotate(18 284 116)" />
-      {/* Eyes whites */}
-      <ellipse cx="181" cy="140" rx="15" ry="17" fill="#fff" />
-      <ellipse cx="239" cy="140" rx="15" ry="17" fill="#fff" />
-      {/* Pupils */}
-      <circle cx="184" cy="142" r="10" fill="#2d1b00" />
-      <circle cx="242" cy="142" r="10" fill="#2d1b00" />
-      {/* Eye shine */}
-      <circle cx="188" cy="138" r="3.5" fill="#fff" />
-      <circle cx="246" cy="138" r="3.5" fill="#fff" />
+    <svg
+      viewBox="0 0 520 450"
+      xmlns="http://www.w3.org/2000/svg"
+      className="w-full h-full drop-shadow-[0_25px_40px_rgba(0,0,0,0.15)]"
+    >
+      {/* White outline */}
+      <g stroke="#ffffff" strokeWidth="16" strokeLinejoin="round">
+        
+        {/* Tail */}
+        <path
+          d="M390 180C430 120 445 70 425 35C410 10 380 18 370 48C362 72 365 105 380 145"
+          fill="#f8f5ef"
+          stroke="#ffffff"
+        />
+
+        {/* Body */}
+        <ellipse cx="290" cy="265" rx="135" ry="92" fill="#f8f5ef" />
+
+        {/* Back leg */}
+        <ellipse cx="380" cy="315" rx="48" ry="70" fill="#f8f5ef" />
+
+        {/* Front legs */}
+        <ellipse cx="180" cy="340" rx="42" ry="32" fill="#f8f5ef" />
+        <ellipse cx="305" cy="345" rx="42" ry="32" fill="#f8f5ef" />
+
+        {/* Head */}
+        <ellipse cx="180" cy="220" rx="105" ry="88" fill="#f8f5ef" />
+
+        {/* Ear */}
+        <path
+          d="M125 165C110 115 90 92 58 95C36 98 24 120 40 145C56 168 78 185 112 198"
+          fill="#ffd12f"
+        />
+      </g>
+
+      {/* Main body lines */}
+      <g stroke="#1e1b4b" strokeWidth="7" fill="none" strokeLinecap="round">
+
+        {/* Tail line */}
+        <path d="M390 180C430 120 445 70 425 35C410 10 380 18 370 48" />
+
+        {/* Body outline */}
+        <path
+          d="M150 275C155 205 220 170 300 175C390 180 445 235 430 310C420 355 390 385 320 390"
+          fill="#f8f5ef"
+        />
+
+        {/* Head outline */}
+        <ellipse cx="180" cy="220" rx="105" ry="88" fill="#f8f5ef" />
+
+        {/* Ear outline */}
+        <path
+          d="M125 165C110 115 90 92 58 95C36 98 24 120 40 145C56 168 78 185 112 198"
+          fill="#ffd12f"
+        />
+      </g>
+
+      {/* Yellow patches */}
+      <path
+        d="M290 175C350 185 385 220 395 285"
+        stroke="#ffd12f"
+        strokeWidth="16"
+        strokeLinecap="round"
+      />
+
+      <path
+        d="M140 150C125 135 108 126 92 126"
+        stroke="#ffd12f"
+        strokeWidth="14"
+        strokeLinecap="round"
+      />
+
+      {/* Eyes */}
+      <ellipse cx="145" cy="225" rx="10" ry="15" fill="#1e1b4b" />
+      <ellipse cx="210" cy="225" rx="10" ry="15" fill="#1e1b4b" />
+
       {/* Nose */}
-      <ellipse cx="210" cy="172" rx="17" ry="11" fill="#2d1b00" />
-      <ellipse cx="207" cy="169" rx="5.5" ry="3.5" fill="#5c3a1e" opacity="0.45" />
+      <ellipse cx="112" cy="255" rx="18" ry="13" fill="#1e1b4b" />
+
       {/* Mouth */}
-      <path d="M196 181 Q210 194 224 181" stroke="#2d1b00" strokeWidth="2.8" fill="none" strokeLinecap="round" />
+      <path
+        d="M118 273C145 302 182 302 205 275"
+        stroke="#1e1b4b"
+        strokeWidth="6"
+        fill="none"
+        strokeLinecap="round"
+      />
+
       {/* Tongue */}
-      <ellipse cx="210" cy="195" rx="13" ry="11" fill="#f87171" />
-      <line x1="210" y1="186" x2="210" y2="205" stroke="#dc2626" strokeWidth="1.8" />
-      {/* Blush */}
-      <ellipse cx="162" cy="164" rx="19" ry="13" fill="#fca5a5" opacity="0.5" />
-      <ellipse cx="258" cy="164" rx="19" ry="13" fill="#fca5a5" opacity="0.5" />
-      {/* Body spot */}
-      <ellipse cx="242" cy="294" rx="24" ry="17" fill="#e8b84b" opacity="0.6" />
-      {/* Collar */}
-      <rect x="164" y="217" width="92" height="19" rx="9.5" fill="#7c3aed" />
-      <circle cx="210" cy="226" r="7.5" fill="#fde68a" />
-      <circle cx="210" cy="226" r="3.5" fill="#e8b84b" />
+      <path
+        d="M162 280C155 308 170 325 188 316C198 308 196 290 190 275"
+        fill="#ff9e9e"
+        stroke="#1e1b4b"
+        strokeWidth="4"
+      />
+
+      {/* Cheek */}
+      <circle cx="245" cy="250" r="10" fill="#ffb3b3" />
+
+      {/* Paw clouds */}
+      <g fill="#f8f5ef" stroke="#1e1b4b" strokeWidth="6">
+        <path d="M300 390C310 365 335 360 350 375C365 355 390 360 398 385C415 375 435 390 425 405H310C292 405 290 398 300 390Z" />
+      </g>
     </svg>
   );
 }
